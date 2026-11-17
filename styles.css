@@ -1,0 +1,256 @@
+:root {
+  --bg-primary: #0B0B0C;
+  --bg-secondary: #121215;
+  --surface-glass: rgba(255, 255, 255, 0.03);
+  --surface-glass-hover: rgba(255, 255, 255, 0.06);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(212, 175, 55, 0.35);
+  
+  --text-main: #F5F5F7;
+  --text-muted: #8E8E93;
+  
+  --gold-light: #F3E5AB;
+  --gold-primary: #D4AF37;
+  --gold-dark: #997A15;
+  
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Акцентная типографика */
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Золотой градиентный текст */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #AA8214 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Фоновое свечение за курсором (Global Spotlight) */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.065) 0%, rgba(212, 175, 55, 0.015) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: opacity 0.5s var(--ease-apple);
+}
+
+/* Стеклянные карточки (Apple Glassmorphism) + локальный Spotlight */
+.glass-card {
+  position: relative;
+  background: var(--surface-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-apple);
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(212, 175, 55, 0.12),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-apple);
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-gold);
+  background: var(--surface-glass-hover);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+/* Кнопки */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 100%);
+  color: #0B0B0C;
+  font-weight: 600;
+  padding: 0.95rem 2rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s var(--ease-apple);
+  box-shadow: 0 8px 25px -6px rgba(212, 175, 55, 0.45);
+}
+
+.btn-gold:hover {
+  transform: scale(1.02) translateY(-1px);
+  box-shadow: 0 14px 32px -6px rgba(212, 175, 55, 0.65);
+  filter: brightness(1.05);
+}
+
+.btn-gold:active {
+  transform: scale(0.98);
+}
+
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--text-main);
+  font-weight: 500;
+  padding: 0.95rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.35s var(--ease-apple);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #FFF6D6;
+  transform: translateY(-1px);
+}
+
+/* Навигация */
+.nav-blur {
+  background: rgba(11, 11, 12, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s var(--ease-apple);
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #F3E5AB;
+}
+
+/* Анимация появления при скролле (Scroll Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s var(--ease-apple), transform 0.85s var(--ease-apple);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+
+/* 3D Карта Aurelia Black Card */
+.card-perspective {
+  perspective: 1200px;
+}
+
+.aurelia-card {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1.586 / 1;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #1A1A1E 0%, #0D0D0F 55%, #191610 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.85),
+    inset 0 1px 1px rgba(255, 246, 214, 0.25);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease-apple);
+  transform-style: preserve-3d;
+}
+
+.aurelia-card-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(243, 229, 171, 0.12) 45%,
+    rgba(212, 175, 55, 0.04) 55%,
+    transparent 80%
+  );
+  pointer-events: none;
+}
+
+/* Тонкий разделитель */
+.hairline-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.25), transparent);
+}
+
+/* Модальное окно */
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease-apple);
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-panel {
+  transform: scale(0.95) translateY(15px);
+  transition: transform 0.4s var(--ease-apple);
+}
+
+.modal-backdrop.open .modal-panel {
+  transform: scale(1) translateY(0);
+}

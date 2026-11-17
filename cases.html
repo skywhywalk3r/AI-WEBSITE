@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кейсы и Отзывы — AURELIA City Bank London</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="selection:bg-[#D4AF37]/30 selection:text-[#FFF6D6]">
+
+  <div id="cursorGlow" class="cursor-glow hidden md:block"></div>
+
+  <!-- Навигация -->
+  <header class="fixed top-0 inset-x-0 z-50 nav-blur">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl border border-[#D4AF37]/40 bg-[#D4AF37]/10 flex items-center justify-center transition-transform duration-500 group-hover:rotate-12">
+          <svg class="w-5 h-5 text-[#F3E5AB]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="text-lg font-semibold tracking-[0.22em] text-white">AURELIA</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-9">
+        <a href="index.html" class="nav-link">← На главную</a>
+        <a href="#all-cases" class="nav-link active">Кейсы внедрения</a>
+        <a href="#all-reviews" class="nav-link">База отзывов</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="btn-glass !py-2.5 !px-5 text-sm">На главную</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-36 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Заголовок страницы -->
+      <div class="max-w-3xl mb-12 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/[0.06] text-xs text-[#F3E5AB] mb-5">
+          <span>Архив успешных решений • London City</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-semibold tracking-tight text-white mb-5">
+          Успешные работы и <span class="font-serif-luxury italic font-normal text-gold-gradient">голоса клиентов.</span>
+        </h1>
+        <p class="text-base sm:text-lg text-[#8E8E93] leading-relaxed">
+          От повседневных транзакций миллионов британцев до сложнейших казначейских систем для технологических корпораций и основателей мирового уровня.
+        </p>
+      </div>
+
+      <!-- Фильтр категорий -->
+      <div class="flex flex-wrap gap-3 mb-12 reveal delay-100" id="filterButtons">
+        <button data-filter="all" class="filter-btn active px-5 py-2.5 rounded-full text-xs font-medium bg-[#D4AF37] text-[#0B0B0C] transition-all">
+          Все истории (6)
+        </button>
+        <button data-filter="tech" class="filter-btn px-5 py-2.5 rounded-full text-xs font-medium bg-white/5 text-[#8E8E93] border border-white/10 hover:border-[#D4AF37]/40 hover:text-white transition-all">
+          IT-корпорации и AI
+        </button>
+        <button data-filter="founders" class="filter-btn px-5 py-2.5 rounded-full text-xs font-medium bg-white/5 text-[#8E8E93] border border-white/10 hover:border-[#D4AF37]/40 hover:text-white transition-all">
+          Визионеры и Основатели
+        </button>
+        <button data-filter="city" class="filter-btn px-5 py-2.5 rounded-full text-xs font-medium bg-white/5 text-[#8E8E93] border border-white/10 hover:border-[#D4AF37]/40 hover:text-white transition-all">
+          Городской банкинг UK
+        </button>
+      </div>
+
+      <!-- Сетка кейсов -->
+      <section id="all-cases" class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mb-24">
+        <!-- Кейс 1 -->
+        <article data-category="tech" class="filter-item glass-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#F3E5AB] border border-[#D4AF37]/25">
+              IT-корпорации
+            </span>
+            <h3 class="text-xl font-semibold text-white mt-5 mb-3">
+              Автоматизация казначейства для AI-платформы в Кембридже
+            </h3>
+            <p class="text-sm text-[#8E8E93] leading-relaxed mb-6">
+              Подключили 14 мультивалютных счетов через REST API Aurelia. Ежемесячные выплаты 2 400 облачным поставщикам и инженерам проходят автоматически без ручного контроля.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.07] flex justify-between text-xs">
+            <span class="text-[#8E8E93]">Результат:</span>
+            <span class="text-[#F3E5AB] font-semibold">-94% времени на фин. операции</span>
+          </div>
+        </article>
+
+        <!-- Кейс 2 -->
+        <article data-category="founders" class="filter-item glass-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#F3E5AB] border border-[#D4AF37]/25">
+              Визионеры и Основатели
+            </span>
+            <h3 class="text-xl font-semibold text-white mt-5 mb-3">
+              Бридж-финансирование сделки M&amp;A на £420M в Сити
+            </h3>
+            <p class="text-sm text-[#8E8E93] leading-relaxed mb-6">
+              Структурировали синдицированный аккредитив и расчётный эскроу-счёт для покупки европейского полупроводникового стартапа за 48 часов.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.07] flex justify-between text-xs">
+            <span class="text-[#8E8E93]">Объём сделки:</span>
+            <span class="text-[#F3E5AB] font-semibold">£420,000,000</span>
+          </div>
+        </article>
+
+        <!-- Кейс 3 -->
+        <article data-category="city" class="filter-item glass-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#F3E5AB] border border-[#D4AF37]/25">
+              Городской банкинг UK
+            </span>
+            <h3 class="text-xl font-semibold text-white mt-5 mb-3">
+              Единая платёжная экосистема для 4.8M жителей Британии
+            </h3>
+            <p class="text-sm text-[#8E8E93] leading-relaxed mb-6">
+              Мгновенная оплата транспорта в Лондоне, разделение счетов в ресторанах Сохо за 1 касание и 4.75% годовых на остаток в фунтах стерлингов с ежедневной выплатой.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.07] flex justify-between text-xs">
+            <span class="text-[#8E8E93]">Активных карт:</span>
+            <span class="text-[#F3E5AB] font-semibold">4,820,000+</span>
+          </div>
+        </article>
+
+        <!-- Кейс 4 -->
+        <article data-category="tech" class="filter-item glass-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#F3E5AB] border border-[#D4AF37]/25">
+              IT-корпорации
+            </span>
+            <h3 class="text-xl font-semibold text-white mt-5 mb-3">
+              Корпоративные карты для 3 500 сотрудников DeepTech-гиганта
+            </h3>
+            <p class="text-sm text-[#8E8E93] leading-relaxed mb-6">
+              Мгновенный выпуск виртуальных карт с динамическими лимитами под облачные сервисы AWS/GCP и командировки по всему миру с кэшбэком 2.5%.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.07] flex justify-between text-xs">
+            <span class="text-[#8E8E93]">Возврат в бюджет:</span>
+            <span class="text-[#F3E5AB] font-semibold">£3.1M за 12 месяцев</span>
+          </div>
+        </article>
+
+        <!-- Кейс 5 -->
+        <article data-category="founders" class="filter-item glass-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#F3E5AB] border border-[#D4AF37]/25">
+              Визионеры и Основатели
+            </span>
+            <h3 class="text-xl font-semibold text-white mt-5 mb-3">
+              Мультисемейный офис и хранение физического золота
+            </h3>
+            <p class="text-sm text-[#8E8E93] leading-relaxed mb-6">
+              Прямой доступ к хранилищу слитков в Лондоне с возможностью мгновенно конвертировать граммы золота в ликвидные фунты на титановой карте.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.07] flex justify-between text-xs">
+            <span class="text-[#8E8E93]">Ликвидность:</span>
+            <span class="text-[#F3E5AB] font-semibold">24/7 в 140 валютах</span>
+          </div>
+        </article>
+
+        <!-- Кейс 6 -->
+        <article data-category="city" class="filter-item glass-card p-8 flex flex-col justify-between reveal">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#F3E5AB] border border-[#D4AF37]/25">
+              Городской банкинг UK
+            </span>
+            <h3 class="text-xl font-semibold text-white mt-5 mb-3">
+              Цифровая ипотека в Лондоне с одобрением за 18 минут
+            </h3>
+            <p class="text-sm text-[#8E8E93] leading-relaxed mb-6">
+              Алгоритмическая оценка недвижимости в Кенсингтоне и Канэри-Уорф без бумажных анкет. Более £12B выданных ипотечных кредитов за прошлый год.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-white/[0.07] flex justify-between text-xs">
+            <span class="text-[#8E8E93]">Среднее время:</span>
+            <span class="text-[#F3E5AB] font-semibold">18 минут до оффера</span>
+          </div>
+        </article>
+      </section>
+
+      <div class="hairline-divider mb-24"></div>
+
+      <!-- РАСШИРЕННАЯ ЛЕНТА ОТЗЫВОВ -->
+      <section id="all-reviews">
+        <div class="mb-12 reveal">
+          <p class="text-xs uppercase tracking-[0.22em] text-[#D4AF37] mb-3">Прямая речь</p>
+          <h2 class="text-3xl sm:text-4xl font-semibold text-white">Больше отзывов клиентов Aurelia</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass-card p-7 reveal">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-[#D4AF37] text-sm">★★★★★</span>
+              <span class="text-xs text-[#8E8E93]">Лондон, Сити</span>
+            </div>
+            <p class="text-sm text-[#F5F5F7]/90 leading-relaxed mb-5">
+              «Когда мы открывали европейскую штаб-квартиру в Лондоне, традиционные банки просили 4 месяца на комплаенс. Aurelia открыла корпоративный счёт за 36 часов и дала прямой выделенный канал SWIFT.»
+            </p>
+            <p class="text-xs font-semibold text-white">Маркус Вэнс — <span class="text-[#8E8E93] font-normal">VP of Finance, NeuralGrid Robotics</span></p>
+          </div>
+
+          <div class="glass-card p-7 reveal">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-[#D4AF37] text-sm">★★★★★</span>
+              <span class="text-xs text-[#8E8E93]">Манчестер</span>
+            </div>
+            <p class="text-sm text-[#F5F5F7]/90 leading-relaxed mb-5">
+              «Пользуюсь картой Aurelia каждый день уже 4 года. Ни одного сбоя, мгновенные push-уведомления, лучший курс при поездках в США и Европу. Это Apple в мире финансов.»
+            </p>
+            <p class="text-xs font-semibold text-white">София Харрисон — <span class="text-[#8E8E93] font-normal">Продуктовый дизайнер</span></p>
+          </div>
+
+          <div class="glass-card p-7 reveal">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-[#D4AF37] text-sm">★★★★★</span>
+              <span class="text-xs text-[#8E8E93]">Эдинбург</span>
+            </div>
+            <p class="text-sm text-[#F5F5F7]/90 leading-relaxed mb-5">
+              «Интеграция с нашей бухгалтерией и автоматическое распределение налоговых резервов под НДС (VAT) экономят нашей студии десятки часов каждый квартал.»
+            </p>
+            <p class="text-xs font-semibold text-white">Дэвид МакГрегор — <span class="text-[#8E8E93] font-normal">CEO, NorthStar Software</span></p>
+          </div>
+
+          <div class="glass-card p-7 reveal">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-[#D4AF37] text-sm">★★★★★</span>
+              <span class="text-xs text-[#8E8E93]">Лондон, Мэйфэр</span>
+            </div>
+            <p class="text-sm text-[#F5F5F7]/90 leading-relaxed mb-5">
+              «Приятно, когда банк понимает специфику венчурных сделок и опционов. Мой персональный советник в Aurelia закрыл вопрос с бридж-кредитом быстрее, чем юристы успели допить кофе.»
+            </p>
+            <p class="text-xs font-semibold text-white">Генриетта Блейк — <span class="text-[#8E8E93] font-normal">Венчурный инвестор</span></p>
+          </div>
+        </div>
+
+        <div class="mt-14 text-center reveal">
+          <a href="index.html" class="btn-gold">
+            ← Вернуться на главную и открыть счёт
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-white/[0.06] py-10 px-6 text-center text-xs text-[#8E8E93]">
+    © 2026 Aurelia City Bank UK Ltd. 22 Bishopsgate, London. All rights reserved.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
